@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Anny Elize</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Anny Elize</div>
+            <button class="menu-toggle" aria-label="Abrir Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfólio</a></li>
+                <li><a href="sobre.html">Sobre Mim</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact" class="section-padding">
+            <h2>Entre em Contato</h2><p>
+            <p class="section-description">Preencha o formulário abaixo ou utilize as informações de contato para falar comigo. Responderei o mais breve possível!</p>
+
+            <div class="contact-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Assunto:</label>
+                        <input type="text" id="subject" name="subject">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                        <span class="error-message" id="messageError"></span>
+                    </div>
+
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                    <div id="form-status" class="form-status-message"></div>
+                </form>
+
+                <div class="contact-info">
+                    <h3>Outras Formas de Contato:</h3>
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:annyelizesilva@gmail.com">annyelizesilva@gmail.com</a></p>
+                    <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/anny-elize-814174198/" target="_blank">Perfil no LinkedIn</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Localização: Pinhais, Paraná, Brasil</p>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+         <p>&copy; 2025 Anny Elize. Todos os direitos reservados.</p>
+         <div class="social-links">
+             <a href="https://www.linkedin.com/in/anny-elize-814174198" target="_blank" aria-label="LinkedIn">
+             <img src="img/Linkedin Imagem.png" alt="LinkedIn">
+         </a>
+         </div>
+     </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

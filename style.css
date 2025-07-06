@@ -1,0 +1,711 @@
+/* Importação da fonte do Google Fonts (se você usou no HTML) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho total do elemento */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove espaço extra abaixo das imagens */
+}
+
+/* --- Header e Navegação --- */
+header {
+    background: #222;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky; /* Menu fixo no topo ao rolar */
+    top: 0;
+    z-index: 1000; /* Garante que o menu fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list li {
+    margin-left: 2rem;
+}
+
+.nav-list a {
+    color: #fff;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative; /* Para o efeito de sublinhado */
+}
+
+.nav-list a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+.nav-list a:hover::after {
+    width: 100%;
+}
+
+/* Menu Toggle (Botão Hambúrguer) - Visível apenas em mobile */
+.menu-toggle {
+    display: none; /* Escondido por padrão em telas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* --- Seções Principais --- */
+.section-padding {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.hero-section {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 6rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Ocupa pelo menos 70% da altura da viewport */
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: 700;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-outline {
+    display: inline-block;
+    border: 2px solid #007bff;
+    color: #007bff;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.btn-outline:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Habilidades */
+.skills-grid {
+    display: grid;
+    /* Adaptação: 3 colunas em telas grandes, 2 em médias, 1 em pequenas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; /* Espaçamento entre os cartões */
+    margin-top: 3rem; /* Espaço entre o título da seção e os cartões */
+    max-width: 1200px; /* Limita a largura da grade de habilidades */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza a grade na página */
+}
+
+.skill-item {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 2.5rem 1.5rem; /* Espaçamento interno (topo/base e laterais) */
+    border-radius: 10px; /* Cantos mais arredondados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra mais destacada e suave */
+    text-align: center; /* Centraliza todo o conteúdo (ícone, título, parágrafo) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave para o hover */
+}
+
+.skill-item:hover {
+    transform: translateY(-8px); /* Levanta o cartão sutilmente */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* Sombra maior no hover */
+}
+
+/* Estilo para o ícone dentro do skill-item */
+.skill-item .skill-icon {
+    font-size: 4rem; /* Tamanho do ícone, grande e impactante */
+    color: #007bff; /* Cor azul primária, chamativa */
+    margin-bottom: 1.5rem; /* Espaço entre o ícone e o título */
+    display: block; /* Garante que o ícone ocupe sua própria linha */
+}
+
+/* Estilo para o título da habilidade */
+
+.skill-item h3 {
+    font-size: 1.8rem; /* Tamanho do título da habilidade */
+    color: #333; /* Cor mais escura para destaque */
+    margin-bottom: 1rem; /* Espaço entre o título e a descrição */
+    line-height: 1.3; /* Ajusta altura da linha para títulos que quebram */
+    
+    /* >>> Adicione/Ajuste esta parte <<< */
+    min-height: 2.6em; /* Garante altura mínima para 2 linhas (2 * 1.3em de line-height) */
+    /* Se a fonte for 1.8rem, 1.3 de line-height, então uma linha é 1.8rem * 1.3 = 2.34rem.
+       Duas linhas seriam aproximadamente 4.68rem. Vamos usar 'em' que é relativo à fonte do elemento. */
+    /* Um valor de '2.6em' deve ser suficiente para garantir espaço para 2 linhas */
+}
+
+/* Os outros estilos para .skill-item e .skill-item .skill-icon devem continuar como estão: */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-item {
+    background-color: #ffffff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.skill-item .skill-icon {
+    font-size: 4rem;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.skill-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* --- Media Queries para responsividade --- */
+@media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    .skill-item {
+        padding: 2rem 1.2rem;
+    }
+    .skill-item .skill-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1.2rem;
+    }
+    .skill-item h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* Em telas menores, uma única coluna */
+        gap: 1.5rem;
+    }
+    .skill-item .skill-icon {
+        font-size: 3rem;
+    }
+    .skill-item h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* --- Footer --- */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: translateY(-3px);
+}
+
+/* --- Responsividade (Media Queries) --- */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none; /* Esconde a lista de navegação em telas menores */
+        flex-direction: column;
+        width: 100%;
+        background: #333;
+        position: absolute;
+        top: 60px; /* Ajuste se o header tiver altura diferente */
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-list.active {
+        display: flex; /* Mostra a lista quando a classe 'active' é adicionada */
+    }
+
+    .nav-list li {
+        margin: 0;
+        text-align: center;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-list li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-list a {
+        padding: 0.8rem 0;
+        display: block; /* Ocupa a largura total do item da lista */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão hambúrguer */
+    }
+
+    /* Animação do ícone do hambúrguer para um X */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .section-padding {
+        padding: 3rem 1rem;
+    }
+}
+* Hero Section */
+.hero-section {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 6rem 1.5rem;
+    display: flex;
+    flex-direction: column; /* Alinha os itens verticalmente */
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.profile-image {
+    width: 150px; /* Ajuste o tamanho conforme necessário */
+    height: 150px;
+    border-radius: 50%; /* Para deixá-la redonda */
+    object-fit: cover; /* Garante que a imagem cubra o círculo sem deformar */
+    margin-bottom: 1rem; /* Espaço entre a imagem e o nome */
+
+/* PROPRIEDADE CHAVE PARA CENTRALIZAR COMO BLOCO (já está com display: block no reset, mas bom reforçar) */
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Opcional: ajustar o hero-section se ainda não estiver com flex-direction: column */
+.hero-section {
+    /* ... (outras propriedades que você já tem) ... */
+    display: flex;
+    flex-direction: column; /* Garante que os itens dentro do hero-content fiquem um abaixo do outro */
+    justify-content: center;
+    align-items: center; /* Centraliza horizontalmente o conteúdo do hero-section */
+}
+
+/* E o hero-content também deve ter centralização de texto */
+.hero-content {
+    /* ... (outras propriedades) ... */
+    text-align: center; /* Centraliza o texto e elementos inline */
+}
+
+/* --- Estilos para Portfólio --- */
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden; /* Garante que a imagem não vaze */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens dos projetos */
+    object-fit: cover; /* Recorta a imagem para preencher o espaço */
+    border-bottom: 1px solid #eee;
+}
+
+.portfolio-item h3 {
+    font-size: 1.6rem;
+    margin: 1.5rem 1rem 0.8rem 1rem;
+    color: #333;
+}
+
+.portfolio-item p {
+    font-size: 1rem;
+    color: #555;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+/* Botão menor para projetos */
+.btn-sm {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.btn-sm:hover {
+    background-color: #0056b3;
+}
+
+.call-to-action {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.call-to-action a {
+    font-weight: 700;
+}
+
+/* --- Estilos para Sobre Mim --- */
+.about-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+    align-items: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.about-image {
+    width: 300px; /* Tamanho da imagem na seção sobre */
+    height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    flex-shrink: 0; /* Impede que a imagem encolha demais */
+}
+
+.about-text {
+    flex: 1; /* Ocupa o espaço restante */
+    min-width: 300px; /* Garante que o texto tenha um mínimo de largura */
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #444;
+}
+
+.about-text ul {
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    list-style-type: disc; /* Bolinhas para a lista */
+}
+
+.about-text ul li {
+    margin-bottom: 0.8rem;
+    color: #444;
+}
+
+/* Para o efeito de contagem de habilidades do JS */
+.animated-skill {
+    color: #007bff;
+    font-weight: 700;
+}
+
+
+/* --- Estilos para Contato --- */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex: 2; /* O formulário ocupa mais espaço */
+    min-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif; /* Garante a fonte consistente */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+textarea {
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.error-message {
+    color: #dc3545; /* Cor vermelha para mensagens de erro */
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+    display: block; /* Garante que a mensagem de erro ocupe sua própria linha */
+}
+
+.form-status-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    display: none; /* Escondido por padrão, só aparece com JS */
+}
+
+.form-status-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-status-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.contact-info {
+    flex: 1; /* As informações de contato ocupam menos espaço */
+    min-width: 250px;
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.contact-info p i { /* Estilo para ícones do Font Awesome */
+    color: #007bff;
+    font-size: 1.2rem;
+}
+
+/* --- Media Queries para as novas seções --- */
+@media (max-width: 768px) {
+    .section-description {
+        margin-bottom: 2rem;
+    }
+    .portfolio-grid,
+    .about-content,
+    .contact-container {
+        grid-template-columns: 1fr; /* Coluna única em telas menores */
+        flex-direction: column; /* Para flexbox, itens em coluna */
+    }
+
+    .about-image {
+        width: 100%; /* Imagem do "Sobre" ocupa 100% da largura em mobile */
+        height: auto;
+        max-width: 300px; /* Garante que não fique gigante em telas muito largas no mobile */
+        margin: 0 auto 2rem auto; /* Centraliza a imagem e adiciona margem abaixo */
+    }
+
+    .contact-form, .contact-info {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-item h3 {
+        font-size: 1.4rem;
+    }
+    .portfolio-item p {
+        font-size: 0.9rem;
+    }
+    .about-text ul {
+        margin-left: 1rem;
+    }
+}
